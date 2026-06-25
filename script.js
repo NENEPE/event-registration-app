@@ -64,15 +64,16 @@ regForm.addEventListener("submit", function(event) {
         return;
     }
 
-    createParticipant(nameValue, field.value, ageValue);
+    createParticipant(nameValue, field.value, ageValue, emailValue);
     successMessage(nameValue, field.value, ageValue);
 });
 
-function createParticipant(name, field, age) {
+function createParticipant(name, field, age, email) {
 
     let participant = {
         name: name,
         field: field,
+        email: email,
         age: age
     };
 
@@ -81,10 +82,10 @@ function createParticipant(name, field, age) {
     renderParticipants();
 }
 
-function renderParticipants() {
+function renderParticipants(participants = participantsArray) {
     participantList.innerHTML = "";
 
-    participantsArray.forEach(participant => {
+    participants.forEach(participant => {
         const participantItem = document.createElement("li");
         participantItem.textContent = `${participant.name} (${participant.age}) - ${participant.field}`;
         participantList.appendChild(participantItem);
@@ -93,3 +94,21 @@ function renderParticipants() {
     participantCount.textContent = `Currently there are ${participantsArray.length} participant(s)`;
 }
 
+const searchBtn = document.getElementById("searchBtn");
+searchBtn.addEventListener("click", function() {
+    const search = document.getElementById("search").value.trim().toLowerCase();
+    const res = participantsArray.filter(participant => {
+        return participant.name.toLowerCase().includes(search) || participant.email.toLowerCase().includes(search);
+    });
+    if (res.length === 0) {
+        participantList.innerHTML = "<li>No participants found</li>";
+        participantCount.textContent = "Currently there are 0 participant(s)";
+    } else {
+        renderParticipants(res);
+    }
+});
+
+const clearBtn = document.getElementById("clearBtn");
+clearBtn.addEventListener("click", function() {
+    renderParticipants();
+})
