@@ -1,0 +1,78 @@
+*{
+    font-family:'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+body {
+    background-color: #E4CDFF;
+    margin: 20px;
+    padding: 20px;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #00356D;
+    color: #E4CDFF;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.type{
+    margin: 10px 0px;
+}
+
+.type input:focus, .type select:focus {
+    outline: none;
+    border: 3px solid #7eb4ee;
+}
+
+input, select{
+    padding: 10px;
+    border: 1px solid #7eb4ee;
+    border-radius: 4px;
+    background-color: #E4CDFF;
+    color: #00356D;
+}
+
+input::placeholder {
+  color: #00356D;
+  opacity: 0.5;
+}
+
+button {
+    padding: 10px;
+    background-color: #00356D;
+    color: #E4CDFF;
+    width: fit-content;
+    border: 2px solid #E4CDFF;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 5px auto;
+}
+
+button:hover {
+    background-color: #E4CDFF;
+    color: #00356D;
+}
+
+button:active {
+    background-color: #7eb4ee;
+    border-color: #7eb4ee;
+}
+
+.message {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1.2em;
+}
