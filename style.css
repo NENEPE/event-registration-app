@@ -23,6 +23,11 @@ h1 {
     text-align: center;
 }
 
+hr{
+    border: 1px solid #7eb4ee;
+    margin: 20px 0;
+}
+
 form {
     display: flex;
     flex-direction: column;
